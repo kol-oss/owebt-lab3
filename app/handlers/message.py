@@ -37,7 +37,7 @@ async def on_prompt(update: Update, context):
         chat_id=context.user_data[ContextParams.CHAT_ID.value],
         message_id=context.user_data[ContextParams.MESSAGE_ID.value],
         reply_markup=create_back_menu(),
-        parse_mode=ParseMode.MARKUP,
+        parse_mode=ParseMode.MARKDOWN,
     )
 
     context.user_data[ContextParams.MESSAGE_ID.value] = sent_message.message_id
