@@ -33,11 +33,11 @@ async def on_prompt(update: Update, context):
     response = send_prompt(text)
 
     sent_message = await context.bot.edit_message_text(
-        text=f"<b>Prompt:</b>\n{text}\n\n<b>Response:</b>\n{response}",
+        text=f"**Prompt:**\n{text}\n\n**Response:**\n{response}",
         chat_id=context.user_data[ContextParams.CHAT_ID.value],
         message_id=context.user_data[ContextParams.MESSAGE_ID.value],
         reply_markup=create_back_menu(),
-        parse_mode=ParseMode.HTML,
+        parse_mode=ParseMode.MARKUP,
     )
 
     context.user_data[ContextParams.MESSAGE_ID.value] = sent_message.message_id
